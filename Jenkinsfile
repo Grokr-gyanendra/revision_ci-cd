@@ -2,7 +2,7 @@ pipeline{
     agent any
 
     stages{
-        stage('Build') {
+        stage('build') {
             steps {
                 script {
                     docker.build('Test')
@@ -10,7 +10,7 @@ pipeline{
             }
         }
 
-        stage('Test') {
+        stage('test') {
             steps {
                 script{
                     def path = pwd().replaceAll('C:', 'c:').replaceAll('\\\\', '/')
@@ -19,7 +19,7 @@ pipeline{
             }
         }
 
-        stage('Deploy') {
+        stage('deploy') {
             steps {
                 script {
                     def path = pwd().replaceAll('C:','c:').replaceAll('\\\\','/')
