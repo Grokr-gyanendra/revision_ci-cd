@@ -14,7 +14,7 @@ pipeline{
             steps {
                 script{
                     def path = pwd().replaceAll('C:', 'c:').replaceAll('\\\\', '/')
-                    bat "docker run -v ${path}:${path} -w ${path} practice pytest -v main.test.py"
+                    bat "docker run -v ${path}:${path} -w ${path} practice pytest -v ./test/main.test.py"
                 }
             }
         }
