@@ -13,8 +13,8 @@ pipeline{
         stage('Test') {
             steps {
                 script{
-                    def workspaceUnixPath = pwd().replaceAll('C:', '/c').replaceAll('\\\\', '/')
-                    bat "docker run -v ${workspaceUnixPath}:${workspaceUnixPath} -w ${workspaceUnixPath} practice pytest -v main_test.py"
+                    def path = pwd().replaceAll('C:', '/c').replaceAll('\\\\', '/')
+                    bat "docker run -v ${path}:${path} -w ${path} practice pytest -v main_test.py"
                 }
             }
         }
