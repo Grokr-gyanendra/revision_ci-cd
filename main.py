@@ -25,13 +25,15 @@ def start():
 def add():
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
-    return jsonify({"ans": x+y})
+    # return jsonify({"ans": x+y})
+    return x+y
 
 @app.route('/sub')
 def sub():
     x = int(request.args.get('x'))
     y = int(request.args.get('y'))
-    return jsonify({"ans": x-y})
+    # return jsonify({"ans": x-y})
+    return x-y
 
 if '__name__' == '__main__':
     app.run()
