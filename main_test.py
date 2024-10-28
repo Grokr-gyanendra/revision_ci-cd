@@ -28,18 +28,18 @@ def test_start(client):
     assert res.status_code == 200
     
 def test_add(client):
-    res = client.get('/add', query={'x':3, 'y':5})
+    res = client.get('/add', query_string={'x':3, 'y':5})
     json_data = res.get_json()
     assert json_data['ans'] == 8
     assert res.status_code == 200
     
 def test_sub(client):
-    res = client.get('/add', query={'x':10, 'y':5})
+    res = client.get('/add', query_string={'x':10, 'y':5})
     json_data = res.get_json()
     assert json_data['ans'] == 5
     assert res.status_code == 200
     
 def test_sub_invalid(client):
-    res = client.get('/add', query={'x':'a', 'y':5})
+    res = client.get('/add', query_string={'x':'a', 'y':5})
     json_data = res.get_json()
     assert res.status_code == 400
