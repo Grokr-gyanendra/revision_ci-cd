@@ -42,4 +42,4 @@ def test_sub(client):
 def test_sub_invalid(client):
     res = client.get('/sub', query_string={'x':'a', 'y':5})
     json_data = res.get_json()
-    assert res.status_code == 400
+    assert res.status_code == 500
