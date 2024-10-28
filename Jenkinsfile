@@ -22,7 +22,7 @@ pipeline{
         stage('Deploy') {
             steps {
                 script {
-                    def path = pwd().replaceAll('C:','c:').replaceAll('\\\\','/')
+                    def path = pwd().replaceAll('C:','/c').replaceAll('\\\\','/')
                     bat "docker run -v ${path}:${path} -w ${path} practice python main.py"
                 }
             }
