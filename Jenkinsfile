@@ -2,28 +2,28 @@ pipeline{
     agent any
 
     stages{
-        stage('build') {
+        stage('Build') {
             steps {
                 script {
-                    docker.build('Test')
+                    docker.build('practice')
                 }
             }
         }
 
-        stage('test') {
+        stage('Test') {
             steps {
                 script{
                     def path = pwd().replaceAll('C:', 'c:').replaceAll('\\\\', '/')
-                    bat "docker run -v ${path}:${path} -w ${path} test_assign pytest -v ./main.test.py"
+                    bat "docker run -v ${path}:${path} -w ${path} practice pytest -v ./main.test.py"
                 }
             }
         }
 
-        stage('deploy') {
+        stage('Deploy') {
             steps {
                 script {
                     def path = pwd().replaceAll('C:','c:').replaceAll('\\\\','/')
-                    bat "docker run -v ${path}:${path} -w ${path} test_assign python main.py"
+                    bat "docker run -v ${path}:${path} -w ${path} practice python main.py"
                 }
             }
         }
